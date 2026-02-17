@@ -1,3 +1,34 @@
-*{
-    background-color: yellow;
+
+
+body {
+  display: flex;       /* Establece el cuerpo como un contenedor flexbox */         
+  justify-content: center;     /*  para centrar horizontalmente */
+  align-items: center;         /* para centrar verticalmente */
+  min-height: 100vh;           /* en este caso  body ocupa el 100% del alto de la pantalla  */
+  margin: 0;                   /* Quita los margenes del navegaro que se tenia por defeceto*/
+  background-color: yellow;   /* Un color de fondo para la página */
+}
+.bg{
+    background-color: red;
+    width: 1000px;
+    height: 700px;
+    display: flex;   
+    justify-content: center;     /*  para centrar horizontalmente */
+    align-items: center;        /* para centrar verticalmente */
+}
+
+.perro{
+    background-color: blue;
+    width: 800px;
+    height: 500px;
+    display: flex;
+    justify-content: center;     /*  para centrar horizontalmente */
+    align-items: center;   
+}
+.cuerpo{
+    background-color: green;
+    width: 600px;
+    height: 300px;
+    clip-path: polygon(26% 19%, 62% 20%, 100% 23%, 99% 75%, 77% 73%, 50% 76%, 2% 63%, 5% 31%);
+
 }
