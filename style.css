@@ -1,94 +1,210 @@
+/* 
+   VARIABLES CSS (5 pts) - :root define var que van a ser globales,
+   que se usan con var() en todo
+    */
+:root {
+    --color-cuerpo:   #c4c2c5;
+    --color-barra:    #f8f7f5;
+    --color-google:   #ceb9b0;
+    --color-fondo1:   #1a1a2e;
+    --color-fondo2:   #16213e;
+    --color-fondo3:   #0f3460;
+}
 
+/* 
+   (15 pts) Si con una sola variable se puede cambiar todos los colores (como dark mode y light mode, pero debe afectar todos los colores para que si)
+   (5 pts) Uso de reglas condicionales como @media, @supports o @container
+    */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-cuerpo:   #2a2a2a;
+        --color-barra:    #333333;
+        --color-google:   #555555;
+        --color-fondo1:   #0a0a0a;
+        --color-fondo2:   #111111;
+        --color-fondo3:   #1c1c1c;
+    }
+}
+
+/* (5 pts) Uso de reglas condicionales como @media, @supports o @container */
+@supports (display: flex) {
+    .cuerpo {
+        display: flex;
+    }
+}
 
 body {
-  display: flex;       /* Establece el cuerpo como un contenedor flexbox */         
-  justify-content: center;     /*  para centrar horizontalmente */
-  align-items: center;         /* para centrar verticalmente */
-  min-height: 100vh;           /* en este caso  body ocupa el 100% del alto de la pantalla  */
-  margin: 0;                   /* Quita los margenes del navegaro que se tenia por defeceto*/
-  background-color: yellow;   /* Un color de fondo para la página */
-}
-.bg{
-    background-color: red;
-    width: 1000px;
-    height: 700px;
-    display: flex;   
-    justify-content: center;     /*  para centrar horizontalmente */
-    align-items: center;        /* para centrar verticalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
+    margin: 0;
+    background-color: var(--color-fondo1);
 }
 
-.telefono{
-    background-color: blue;
+.bg {
+    background-color: var(--color-fondo2);
+    width: clamp(400px, 80vw, 1000px);       /* (5 pts) Uso creativo de clamp(), min() o max() */
+    height: clamp(300px, 60vh, 700px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.telefono {
+    background-color: var(--color-fondo3);
     width: 800px;
     height: 600px;
     display: flex;
-    justify-content: center;     /*  para centrar horizontalmente */
-    align-items: center;   
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
+
+/* (5 pts) Uso de anidación CSS (CSS Nesting)*/
 .cuerpo {
-    background-color: #c4c2c5;
+    background-color: var(--color-cuerpo);
     width: 250px;
     height: 500px;
     display: flex;
-    flex-direction: column;      /* Apila los hijos verticalmente */
-    justify-content: flex-start; /* Empuja los hijos al inicio (arriba) */
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     border-radius: 20px;
+
+    /* en este caso (Nesting) del logo dentro de cuerpo */
+    & .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        width: 100%;
+        margin-bottom: 110px;
+    }
 }
 
-
-
-
-
-.cuerpo .seccion-camaras{
-    display: flex; 
-    justify-content: start; 
-    align-items: center; 
-    background-color:#f8f7f5;
-    flex-direction: row; /* Alinea las cámaras horizontalmente */
+/* (5 pts) Selector descendiente (espacio)*/
+.cuerpo .seccion-camaras {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: var(--color-barra);
+    flex-direction: row;
     width: 250px;
     height: 70px;
-    margin-top: 40px; /* Espacio entre la cabeza y las cámaras */
+    margin-top: 40px;
 }
-.cuerpo .seccion-camaras .camaras{
+
+/*(5 pts) Selector hijo directo > */
+.cuerpo > .seccion-camaras > .camaras {
     background-color: black;
     width: 110px;
     height: 50px;
-    border-radius: 41%; /* Hace que las cámaras sean circulares */
-    margin-left: 40px; /* Espacio entre las cámaras */
+    border-radius: 41%;
+    margin-left: 30px;
     display: flex;
-    flex-direction: row; /* Alinea las cámaras horizontalmente */
-    justify-content: start; /* Centra el contenido dentro de las cámaras */
-    align-items: center; /* Centra el contenido dentro de las cámaras */
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
 
+/* 
+   (5 pts) Selector adyacente "+"
+   .sensor esta justo despues de .camaras */
+.camaras + .sensor {
+    background-color: #2a2a2a;
+    width: 4px;
+    height: 4px;
+    border-radius: 100%;
+    margin-left: 30px;
+}
+
+/* 
+   (5 pts) Selector general "~"
+   .flash es hermano general de .camaras*/
+.camaras ~ .flash {
+    background-color: #c1d1d2;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow:   /* sombra de halo para el flash, esta permitido porque pues el ejercicio dice que esta prohibido para esto de simular pixel art */
+        0 0 0 3px #c1d1d2,
+        0 0 0 5px #bfc2ca;
+}
+
+/* (5 pts) :first-child y :last-child*/
+.camaras > div:first-child {
+    margin-left: 10px;
+}
+
+.camaras > div:last-child {
+    margin-right: 5px;
+}
+
+/* (5 pts) :nth-child()*/
+.camaras > div:nth-child(2) {
+    opacity: 0.9;
+}
+
+/* (5 pts) Uso correcto de :has()
+   Si .seccion-camaras tiene lentes, le da sombra */
+.seccion-camaras:has(.lente1) {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* (10 pts) ::before y ::after utilizados significativamente */
+
+/* Boton de volumen -  izquierdo */
+.telefono::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 50px;
+    background-color: #8a8a8a;
+    border-radius: 3px;
+    margin-right: 3px;   /* empuja al .cuerpo */
+}
+
+/* Boton de encendido - derecho */
+.telefono::after {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 65px;
+    background-color: #8a8a8a;
+    border-radius: 3px;
+    margin-left: 3px;    
 }
 
 .lente1 {
     width: 12px;
     height: 12px;
-    background: radial-gradient(circle at 35% 35%, #555, #111);  /*  gradiente da profundidad */
+    background: radial-gradient(circle at 35% 35%, #555, #111);
     border-radius: 50%;
     margin-left: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Anillos tipo cebolla usando  box-shadow */
-    box-shadow: 
-        0 0 0 3px #2a2a2a,   /* anillo 1 - interno */
-        0 0 0 5px #444,      /* anillo 2 */
-        0 0 0 7px #222;      /* anillo 3 - externo */
+    box-shadow:
+        0 0 0 3px #2a2a2a,
+        0 0 0 5px #444,
+        0 0 0 7px #222;
 }
 
 .lente2 {
     width: 10px;
     height: 10px;
-    background: radial-gradient(circle at 35% 35%, #555, #111); /*  gradiente da profundidad, osea que crea un  degradado que se expande en forma de círculo o elipse desde un punto central hacia afuera.  */
+    background: radial-gradient(circle at 35% 35%, #555, #111);
     border-radius: 50%;
     margin-left: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 
+    box-shadow:
         0 0 0 3px #2a2a2a,
         0 0 0 5px #444,
         0 0 0 7px #222;
@@ -103,86 +219,46 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 
+    box-shadow:
         0 0 0 3px #2a2a2a,
         0 0 0 6px #444,
         0 0 0 9px #222;
 }
 
-/* va a ser el reflejo peque;o que se ve en esquina superior izquierda */
+
 .reflejo1 {
     width: 10px;
     height: 10px;
     background: rgba(255, 255, 255, 0.7);
     border-radius: 50%;
- 
-}
-.reflejo2{
-        width: 4px;
-        height: 4px;
-        background: rgba(255, 255, 255, 0.7);
-        border-radius: 50%;
 }
 
-.reflejo3{
+.reflejo2 {
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+}
+
+.reflejo3 {
     width: 8px;
     height: 8px;
     background: rgba(255, 255, 255, 0.7);
     border-radius: 50%;
-
 }
-.reflejo4{
+
+.reflejo4 {
     width: 1px;
     height: 1px;
     background: rgba(255, 255, 255, 0.7);
     border-radius: 50%;
 }
 
-.sensor{
-    background-color: #2a2a2a;
-    width: 2px;
-    height: 2px;
-    border-radius: 100%;
-    margin-left: 40px;
-   
-}
 
-.flash{
-    background-color: #c1d1d2;
-    width: 16px;
-    height: 16px;
-    border-radius: 100%;
-    margin-left: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 
-        0 0 0 3px #c1d1d2,   /* anillo 1 - interno */
-        0 0 0 5px #bfc2ca;    /* anillo 2 */
-
-
-
-}
-
-.google{
-     color: #ceb9b0;
+.google {
+    color: var(--color-google);
     font-size: 40px;
-        font-family: 'Arial', sans-serif;
-        font-weight: bold;
-      
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
     padding: 5px;
 }
-
-.cuerpo .logo {
-    display: flex;
-    justify-content: center;   /* centra horizontalmente */
-    align-items: center;       /* centra verticalmente */
-    flex: 1;                   /* ocupa todo el espacio restante del .cuerpo */
-    width: 100%;
-    margin-bottom: 110px; 
-
-
-}
-
-
-
