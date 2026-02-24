@@ -26,7 +26,7 @@ body {
     align-items: center;   
 }
 .cuerpo {
-    background-color: green;
+    background-color: #c4c2c5;
     width: 250px;
     height: 500px;
     display: flex;
@@ -36,19 +36,15 @@ body {
     border-radius: 20px;
 }
 
-.cuerpo .logo {
-    display: flex;
-    justify-content: center;   /* centra horizontalmente */
-    align-items: center;       /* centra verticalmente */
-    flex: 1;                   /* ← ocupa todo el espacio restante del .cuerpo */
-    width: 100%;
-}
+
+
+
 
 .cuerpo .seccion-camaras{
     display: flex; /* Importante: permite que los hijos se posicionen respecto a la cabeza */
     justify-content: start; /* Alinea la cabeza a la derecha del cuerpo */
     align-items: center; /* Centra verticalmente la cabeza respecto al cuerpo */
-    background-color: #8B4513; /* Un café perruno */
+    background-color: #f7f6f4; /* Un café perruno */
     flex-direction: row; /* Alinea las cámaras horizontalmente */
     width: 250px;
     height: 70px;
@@ -60,10 +56,89 @@ body {
     height: 50px;
     border-radius: 41%; /* Hace que las cámaras sean circulares */
     margin-left: 40px; /* Espacio entre las cámaras */
+    display: flex;
+    flex-direction: row; /* Alinea las cámaras horizontalmente */
+    justify-content: start; /* Centra el contenido dentro de las cámaras */
+    align-items: center; /* Centra el contenido dentro de las cámaras */
 
 }
 
+.lente1{
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    margin-left: 15px; /* Espacio entre la lente y el borde de la cámara */
+    display: flex;
+    justify-content: center; /* Centra la lente dentro de la cámara */
+    align-items: center; /* Centra la lente dentro de la cámara */
+}
 
+.reflejo1{
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+
+}
+
+.lente2{
+    width: 20px;
+    height: 20px;
+    background-color: greenyellow;
+    border-radius: 50%;
+    margin-left: 5px; /* Espacio entre la lente y el borde de la cámara */
+    display: flex;
+    justify-content: center; /* Centra la lente dentro de la cámara */
+    align-items: center; /* Centra la lente dentro de la cámara */
+}
+
+
+.reflejo2{
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+
+}
+
+.reflejo3{
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+
+}
+
+.lente3{
+    width: 30px;
+    height: 30px;
+    background-color: coral;
+    border-radius: 50%;
+    margin-left: 10px; /* Espacio entre la lente y el borde de la cámara */
+    display: flex;
+    justify-content: center; /* Centra la lente dentro de la cámara */
+    align-items: center; /* Centra la lente dentro de la cámara */
+}
+.google{
+     color: #ceb9b0;
+    font-size: 40px;
+        font-family: 'Arial', sans-serif;
+        font-weight: bold;
+      
+    padding: 5px;
+}
+
+.cuerpo .logo {
+    display: flex;
+    justify-content: center;   /* centra horizontalmente */
+    align-items: center;       /* centra verticalmente */
+    flex: 1;                   /* ocupa todo el espacio restante del .cuerpo */
+    width: 100%;
+    margin-bottom: 110px; 
+
+
+}
 
 
 
