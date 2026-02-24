@@ -17,18 +17,53 @@ body {
     align-items: center;        /* para centrar verticalmente */
 }
 
-.perro{
+.telefono{
     background-color: blue;
     width: 800px;
-    height: 500px;
+    height: 600px;
     display: flex;
     justify-content: center;     /*  para centrar horizontalmente */
     align-items: center;   
 }
-.cuerpo{
+.cuerpo {
     background-color: green;
-    width: 600px;
-    height: 300px;
-    clip-path: polygon(26% 19%, 62% 20%, 100% 23%, 99% 75%, 77% 73%, 50% 76%, 2% 63%, 5% 31%);
+    width: 250px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;      /* Apila los hijos verticalmente */
+    justify-content: flex-start; /* Empuja los hijos al inicio (arriba) */
+    align-items: center;
+    border-radius: 20px;
+}
+
+.cuerpo .logo {
+    display: flex;
+    justify-content: center;   /* centra horizontalmente */
+    align-items: center;       /* centra verticalmente */
+    flex: 1;                   /* ← ocupa todo el espacio restante del .cuerpo */
+    width: 100%;
+}
+
+.cuerpo .seccion-camaras{
+    display: flex; /* Importante: permite que los hijos se posicionen respecto a la cabeza */
+    justify-content: start; /* Alinea la cabeza a la derecha del cuerpo */
+    align-items: center; /* Centra verticalmente la cabeza respecto al cuerpo */
+    background-color: #8B4513; /* Un café perruno */
+    flex-direction: row; /* Alinea las cámaras horizontalmente */
+    width: 250px;
+    height: 70px;
+    margin-top: 40px; /* Espacio entre la cabeza y las cámaras */
+}
+.cuerpo .seccion-camaras .camaras{
+    background-color: black;
+    width: 110px;
+    height: 50px;
+    border-radius: 41%; /* Hace que las cámaras sean circulares */
+    margin-left: 40px; /* Espacio entre las cámaras */
 
 }
+
+
+
+
+
