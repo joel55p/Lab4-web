@@ -41,10 +41,10 @@ body {
 
 
 .cuerpo .seccion-camaras{
-    display: flex; /* Importante: permite que los hijos se posicionen respecto a la cabeza */
-    justify-content: start; /* Alinea la cabeza a la derecha del cuerpo */
-    align-items: center; /* Centra verticalmente la cabeza respecto al cuerpo */
-    background-color: #f7f6f4; /* Un café perruno */
+    display: flex; 
+    justify-content: start; 
+    align-items: center; 
+    background-color:#f8f7f5;
     flex-direction: row; /* Alinea las cámaras horizontalmente */
     width: 250px;
     height: 70px;
@@ -63,63 +63,107 @@ body {
 
 }
 
-.lente1{
-    width: 20px;
-    height: 20px;
-    background-color: red;
+.lente1 {
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle at 35% 35%, #555, #111);  /*  gradiente da profundidad */
     border-radius: 50%;
-    margin-left: 15px; /* Espacio entre la lente y el borde de la cámara */
+    margin-left: 15px;
     display: flex;
-    justify-content: center; /* Centra la lente dentro de la cámara */
-    align-items: center; /* Centra la lente dentro de la cámara */
+    justify-content: center;
+    align-items: center;
+    /* Anillos tipo cebolla usando  box-shadow */
+    box-shadow: 
+        0 0 0 3px #2a2a2a,   /* anillo 1 - interno */
+        0 0 0 5px #444,      /* anillo 2 */
+        0 0 0 7px #222;      /* anillo 3 - externo */
 }
 
-.reflejo1{
+.lente2 {
     width: 10px;
     height: 10px;
-    background-color: white;
+    background: radial-gradient(circle at 35% 35%, #555, #111); /*  gradiente da profundidad, osea que crea un  degradado que se expande en forma de círculo o elipse desde un punto central hacia afuera.  */
     border-radius: 50%;
-
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 
+        0 0 0 3px #2a2a2a,
+        0 0 0 5px #444,
+        0 0 0 7px #222;
 }
 
-.lente2{
+.lente3 {
     width: 20px;
     height: 20px;
-    background-color: greenyellow;
+    background: radial-gradient(circle at 35% 35%, #555, #111);
     border-radius: 50%;
-    margin-left: 5px; /* Espacio entre la lente y el borde de la cámara */
+    margin-left: 20px;
     display: flex;
-    justify-content: center; /* Centra la lente dentro de la cámara */
-    align-items: center; /* Centra la lente dentro de la cámara */
+    justify-content: center;
+    align-items: center;
+    box-shadow: 
+        0 0 0 3px #2a2a2a,
+        0 0 0 6px #444,
+        0 0 0 9px #222;
 }
 
-
+/* va a ser el reflejo peque;o que se ve en esquina superior izquierda */
+.reflejo1 {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+ 
+}
 .reflejo2{
-    width: 10px;
-    height: 10px;
-    background-color: white;
-    border-radius: 50%;
-
+        width: 4px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 50%;
 }
 
 .reflejo3{
-    width: 10px;
-    height: 10px;
-    background-color: white;
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.7);
     border-radius: 50%;
 
 }
-
-.lente3{
-    width: 30px;
-    height: 30px;
-    background-color: coral;
+.reflejo4{
+    width: 1px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.7);
     border-radius: 50%;
-    margin-left: 10px; /* Espacio entre la lente y el borde de la cámara */
+}
+
+.sensor{
+    background-color: #2a2a2a;
+    width: 2px;
+    height: 2px;
+    border-radius: 100%;
+    margin-left: 40px;
+   
+}
+
+.flash{
+    background-color: #c1d1d2;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    margin-left: 15px;
     display: flex;
-    justify-content: center; /* Centra la lente dentro de la cámara */
-    align-items: center; /* Centra la lente dentro de la cámara */
+    justify-content: center;
+    align-items: center;
+    box-shadow: 
+        0 0 0 3px #c1d1d2,   /* anillo 1 - interno */
+        0 0 0 5px #bfc2ca;    /* anillo 2 */
+
+
+
 }
+
 .google{
      color: #ceb9b0;
     font-size: 40px;
